@@ -11,14 +11,16 @@ public:
       int map[ASCINUM];
       memset(map, -1, ASCINUM * sizeof(int));
       for(int r=0; r<s.size(); r++){
-        if(map[int(s[r])] == -1){
-          map[int(s[r])] = r;      
-        }else{
+        if(map[int(s[r])] != -1)
           l = max(l, map[int(s[r])]+1);
-          map[int(s[r])] = r;
-        }  
         ans = max(ans, r-l+1);
+        map[int(s[r])] = r;
       }
       return ans;
     }
 };
+
+
+abcabcbb
+   l 
+    r
