@@ -1,6 +1,6 @@
 /**
-Runtime: 132 ms, faster than 65.28% of C++ online submissions for 3Sum.
-Memory Usage: 19.9 MB, less than 63.33% of C++ online submissions for 3Sum.
+Runtime: 76 ms, faster than 96.63% of C++ online submissions for 3Sum.
+Memory Usage: 19.9 MB, less than 85.43% of C++ online submissions for 3Sum.
 **/
 class Solution {
 public:
@@ -10,8 +10,9 @@ public:
     for(int i=0; i<nums.size()-2; i++){
       if(nums[i] > 0) break;
       if(i>0 && (nums[i]==nums[i-1])) continue;  
+      
       int j=i+1, k=nums.size()-1;
-
+      if(nums[k] < 0) break;
       while(j < k){
         int sum = nums[j]+nums[k]+nums[i];
         if(sum == 0){
