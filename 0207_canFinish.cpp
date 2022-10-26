@@ -10,7 +10,7 @@ public:
         }else if(isVisit[idx] == 0){
             isVisit[idx] = 1;
             for(auto course:graph[idx]){
-                if(isCycle(graph, isVisit, course))
+                if(isVisit[idx]!= -1 && isCycle(graph, isVisit, course))
                     return true;
             }
         }
