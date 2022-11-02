@@ -5,7 +5,7 @@ Memory Usage: 90.7 MB, less than 17.68% of C++ online submissions for Non-overla
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        int ret = 0, num=INT_MIN;
+        int ret = 0, curr=INT_MIN;
         int n = intervals.size();
         
         pair<int,int> p[n];
@@ -16,8 +16,8 @@ public:
         
         sort(p, p+n, [](pair<int,int> &vp1, pair<int,int> &vp2){return vp1.second<vp2.second;});
         for(auto& [num1, num2]:p){
-            if(num1 >= num)
-                num = num2;
+            if(num1 >= curr)
+                curr = num2;
             else
                 ret++;
         }
