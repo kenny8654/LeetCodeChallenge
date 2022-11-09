@@ -1,12 +1,12 @@
 /**
-Runtime: 29 ms, Beats: 72.96%
-Memory: 13.1 MB, Beats: 46.61%
+Runtime: 6 ms, Beats: 99.81%
+Memory: 10.7 MB, Beats: 70.68%
 **/
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {
         int row = text1.size(), col = text2.size();
-        vector<vector<int>> dp(row, vector<int> (col, 0));
+        int dp[row][col];
         dp[0][0] = (text1[0]==text2[0])?1: 0;
         for(int j=1; j<col; j++)
             dp[0][j] = (text1[0]==text2[j])?1:dp[0][j-1];
