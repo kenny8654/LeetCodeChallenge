@@ -7,7 +7,7 @@ public:
     bool wordBreak(string s, vector<string>& wordDict) {
         vector<bool> dp(s.size()+1, false);
         dp[0] = true;
-        cout<<s<<endl;
+        
         for(int i=1; i<dp.size(); i++){
             for(auto& word:wordDict){
                 if(dp[i-1] == true && s.substr(i-1, word.size()) == word){
