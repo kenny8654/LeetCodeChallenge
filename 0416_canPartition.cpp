@@ -5,6 +5,7 @@ Memory: 9.7 MB, Beats: 87.7%
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
+#if 0
         int half = 0;
         for(auto& num:nums){
             half += num;
@@ -22,5 +23,20 @@ public:
             }
             return dp[half];
         }
+    
+#else
+        int half = 0;
+        for(auto& num:nums){
+            half += num;
+        }
+        if(half & 1)
+            return false; 
+        bitset<20001> bs(1);
+        for(auto& num:nums){
+            bs |= bs << num;
+        }
+        return bs[half/2];
+
+#endif
     }
 };
