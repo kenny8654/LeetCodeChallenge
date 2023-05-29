@@ -29,10 +29,10 @@ public:
                 j += dirs[dir][1];
                 break;
             case 'L':
-                dir = (dir - 1 + 4) % 4;
+                dir = (dir - 1 + sizeof(dirs)) % 4;
                 break;
             case 'R':
-                dir = (dir + 1 + 4) % 4;
+                dir = (dir + 1 + sizeof(dirs)) % 4;
                 break;
         }
     }
