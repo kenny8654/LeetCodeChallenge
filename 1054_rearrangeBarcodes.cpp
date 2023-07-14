@@ -16,8 +16,11 @@ public:
                 max_cnt = barcode_cnt[barcode];
             }
         }
-        // odd
-        for(int i=0; i<barcodes.size(); i+=2){
+
+        for(int i=0, num_cnt=0; num_cnt<barcodes.size(); i+=2, num_cnt++){
+            if(i >= barcodes.size())
+                i = 1;
+
             if(barcode_cnt[max_barcode] > 0){
                 ret[i] = max_barcode;
                 barcode_cnt[max_barcode]--;
@@ -28,14 +31,6 @@ public:
                 ret[i] = cur;
                 barcode_cnt[cur]--;
             }
-        }
-        //even
-        for(int i=1; i<barcodes.size(); i+=2){
-            while(barcode_cnt[cur] == 0){
-                cur++;
-            }
-            ret[i] = cur;
-            barcode_cnt[cur]--;    
         }
         return ret;
     }
