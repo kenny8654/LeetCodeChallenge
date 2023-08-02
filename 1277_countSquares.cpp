@@ -1,0 +1,20 @@
+/**
+Runtime: 55ms
+Beats 96.57%of users with C++
+Memory: 23.52mb
+Beats 86.69%of users with C++
+  **/
+class Solution {
+public:
+    int countSquares(vector<vector<int>>& matrix) {
+        int ret = 0;
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[0].size(); j++){
+                if(i>0 && j>0 && matrix[i][j])
+                    matrix[i][j] = min(matrix[i-1][j-1], min(matrix[i-1][j], matrix[i][j-1])) + 1;
+                ret += matrix[i][j];
+            }
+        }
+        return ret;
+    }
+};
